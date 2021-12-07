@@ -1,8 +1,15 @@
-﻿@model DocAppointment.Models.ViewModels.LoginViewModel
-<h2> Sign in </h2>
-<form id="account" method="post" asp-action="Login" asp-controller="Account">
-    <h4> Use you registered Email and password to login</h4>
+﻿@model DocAppointment.Models.ViewModels.RegisterViewModels
+<h2> Register </h2>
+<form id="account" method="post" asp-action="Register" asp-controller="Account">
+    <h4> Create you registration by entering Email, password and choose a role to register</h4>
     <hr />
+    <div class="form-group row">
+        <label asp-for="Name" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
     <div class="form-group row">
         <label asp-for="Email" class="col-md-2"></label>
         <div class="col-md-10">
@@ -17,6 +24,14 @@
             <span asp-validation-for="Password" class="text-danger"></span>
         </div>
     </div>
+    <div class="form-group row">
+        <label asp-for="ConfirmPassword" class="col-md-2"></label>
+        <div class="col-md-10">
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+    </div>
+
     <div class="form-group row">
         <label class="col-md-2" asp-for="RoleName"></label>
         <div class="col-md-10">
