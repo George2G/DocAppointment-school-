@@ -1,4 +1,5 @@
 using DocAppointment.Models;
+using DocAppointment.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,6 +31,8 @@ namespace DocAppointment
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaulConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddTransient<IAppointmentService, AppointmentService>();
+
 
         }
 
@@ -52,7 +55,7 @@ namespace DocAppointment
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseAuthentication();
+            app.UseAuthentication();    
 
             app.UseEndpoints(endpoints =>
             {
