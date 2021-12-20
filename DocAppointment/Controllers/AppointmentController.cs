@@ -1,6 +1,7 @@
 ﻿using DocAppointment.Models;
 using DocAppointment.Models.ViewModels;
 using DocAppointment.Services;
+using DocAppointment.Utility;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,9 @@ namespace DocAppointment.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Duration = Helper.GetTimeDropDown();
             ViewBag.DoctorList = _appointmentService.GetDoctorList();
+            ViewBag.PatientList = _appointmentService.GetPatientList();
             return View();
         }
     }
