@@ -13,5 +13,7 @@ namespace DocAppointment.Models
         {
 
         }
+
+        public DbSet<Appointment> Appointments { get; set; }
     }
 }

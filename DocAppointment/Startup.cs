@@ -32,6 +32,7 @@ namespace DocAppointment
             options.UseSqlServer(Configuration.GetConnectionString("DefaulConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddTransient<IAppointmentService, AppointmentService>();
+            services.AddHttpContextAccessor();
 
 
         }

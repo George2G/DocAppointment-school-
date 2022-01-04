@@ -1,8 +1,5 @@
-﻿@*
-   
-*@
-@{
-}
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
 
 <div class="container">
     @if (User.IsInRole(DocAppointment.Utility.Helper.Admin))
@@ -26,3 +23,7 @@
     <div id="calendar"></div>   
 </div>
     <partial name="_AddEditAppointment" />
+
+@section Scripts{ 
+<script scr="~/js/script-custom-calendar.js"></script>
+}
